@@ -1,0 +1,11 @@
+Model Information:
+* title:	Desert Columns
+* source:	https://sketchfab.com/3d-models/desert-columns-043e644d44024161b87fff750d9c871d
+* author:	Andres Piroso (https://sketchfab.com/andrespiroso)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Desert Columns" (https://sketchfab.com/3d-models/desert-columns-043e644d44024161b87fff750d9c871d) by Andres Piroso (https://sketchfab.com/andrespiroso) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

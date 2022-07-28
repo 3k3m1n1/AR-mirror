@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ancient Ruins (Modular)
+* source:	https://sketchfab.com/3d-models/ancient-ruins-modular-c277e5acad5849bc913e76d3fdbf32a3
+* author:	zacharykozak (https://sketchfab.com/zacharykozak)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ancient Ruins (Modular)" (https://sketchfab.com/3d-models/ancient-ruins-modular-c277e5acad5849bc913e76d3fdbf32a3) by zacharykozak (https://sketchfab.com/zacharykozak) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
