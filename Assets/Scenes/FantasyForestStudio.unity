@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowerPrefab: {fileID: 1963498588782302734, guid: 39a65da35c781564c82ce909c8548925,
     type: 3}
-  floorY: -0.7
+  floorY: 0
 --- !u!4 &125145908
 Transform:
   m_ObjectHideFlags: 0
@@ -8797,6 +8797,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 296783924000343614, guid: 856bee2eeca8c8c4abd2a631f96c90fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 296783924088122209, guid: 856bee2eeca8c8c4abd2a631f96c90fa,
         type: 3}
       propertyPath: m_Name

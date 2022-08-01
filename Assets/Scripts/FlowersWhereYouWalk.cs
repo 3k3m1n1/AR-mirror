@@ -24,7 +24,7 @@ public class FlowersWhereYouWalk : MonoBehaviour
             // for each one, spawn a flower/plant at their XZ coordinates and Y = the floor
             foreach (GameObject visitor in visitors)
             {
-                Instantiate(flowerPrefab, new Vector3(visitor.transform.position.x, floorY, visitor.transform.position.z), visitor.transform.rotation);
+                Instantiate(flowerPrefab, new Vector3(visitor.transform.position.x + Random.Range(-0.3f, 0.3f), floorY, visitor.transform.position.z + Random.Range(-0.3f, 0.3f)), Quaternion.Euler(0f, Random.Range(-45f, 45f), 0f), this.transform);
             }
 
             yield return new WaitForSeconds(Random.Range(0.5f, 2));
