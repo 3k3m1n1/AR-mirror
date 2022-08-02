@@ -28,7 +28,7 @@ public class FlowersWhereYouWalk : MonoBehaviour
                 Instantiate(flowerPrefab, new Vector3(visitor.transform.position.x + Random.Range(-0.3f, 0.3f), floorY, visitor.transform.position.z + Random.Range(-0.3f, 0.3f)), Quaternion.Euler(0f, Random.Range(-45f, 45f), 0f), this.transform);
             }
 
-            yield return new WaitForSeconds(Random.Range(0.4f, 1.2f));
+            yield return new WaitForSeconds(Random.Range(0.34f, .7f));
         }
     }
 }
