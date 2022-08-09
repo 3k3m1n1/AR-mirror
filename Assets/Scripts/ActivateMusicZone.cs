@@ -7,21 +7,30 @@ public class ActivateMusicZone : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public string audioMixerParameter;
-    private int zoneCount = 0;
-    
+    int zoneCount = 0;
+
+    ParticleSystem particles;
+    SpriteRenderer spotlight;
+    public float fadeSpeed = 0.4f;
+
+    bool lightsOn = true;
+    ZEDManager zedManager;
+
     // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
+    void Start()
+    {
+        particles = GetComponentInChildren<ParticleSystem>();
+        spotlight = transform.GetChild(3).GetComponent<SpriteRenderer>();
+        zedManager = GameObject.Find("ZED_Rig_Mono").GetComponent<ZEDManager>();
+    }
 
     // Update is called once per frame
     //void Update()
     //{
-        
+
     //}
 
-    IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
+    IEnumerator FadeVolume(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
         // lerps the volume up/down over time instead of abruptly changing it
         float currentTime = 0;
@@ -39,6 +48,45 @@ public class ActivateMusicZone : MonoBehaviour
         yield break;
     }
 
+    IEnumerator FadeSpotlightIn()
+    {
+        float alphaValue = 0f;
+
+        while (spotlight.color.a < 1)
+        {
+            alphaValue += fadeSpeed * Time.deltaTime;
+            spotlight.color = new Color(1f, 1f, 1f, alphaValue);
+
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeSpotlightOut()
+    {
+        float alphaValue = 1f;
+
+        while (spotlight.color.a > 0)
+        {
+            alphaValue -= 0.8f * Time.deltaTime;
+            spotlight.color = new Color(1f, 1f, 1f, alphaValue);
+
+            yield return null;
+        }
+    }
+
+    IEnumerator DimTheScene()
+    {
+        int brightnessValue = 100;
+
+        while (zedManager.CameraBrightness > 14)
+        {
+            brightnessValue = (int)(brightnessValue - Time.deltaTime);   //brightnessValue--;  //brightnessValue -= Mathf.RoundToInt(1f * Time.deltaTime);
+            zedManager.CameraBrightness = brightnessValue; //studioLights = alphaValue;
+
+            yield return null;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // when someone walks into this zone (and it was empty before), increase the volume of its instrument in the Audio Mixer
@@ -49,7 +97,14 @@ public class ActivateMusicZone : MonoBehaviour
 
             if (zoneCount == 1)
             {
-                StartCoroutine(StartFade(audioMixer, audioMixerParameter, 0.2f, 1f));    // make sure to type the parameter's name into the inspector! violinVolume, fluteVolume, etc.
+                particles.Play();
+                StartCoroutine(FadeSpotlightIn());
+                if (lightsOn)
+                {
+                    StartCoroutine(DimTheScene());
+                    lightsOn = false;
+                }
+                StartCoroutine(FadeVolume(audioMixer, audioMixerParameter, 0.2f, 1f));    // make sure to type the parameter's name into the inspector! violinVolume, fluteVolume, etc.
                                                                                          // and drag in the audio mixer reference as well
             }
         }
@@ -65,7 +120,9 @@ public class ActivateMusicZone : MonoBehaviour
 
             if (zoneCount == 0)
             {
-                StartCoroutine(StartFade(audioMixer, audioMixerParameter, 0.2f, 0.0001f));
+                particles.Stop();
+                StartCoroutine(FadeSpotlightOut());
+                StartCoroutine(FadeVolume(audioMixer, audioMixerParameter, 0.2f, 0.0001f));
             } 
         }
     }
