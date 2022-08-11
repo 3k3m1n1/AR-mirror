@@ -118,7 +118,7 @@ AudioMixerController:
   - guid: 6cb7dc6846fbc3148859bcda8a4cf042
     name: bassVolume
   - guid: 6ee71980e5fff734a8657328abb6bf59
-    name: congaVolume
+    name: drumsVolume
   - guid: 5c311bbea93ad2643835d9e46b0fec01
     name: harpVolume
   - guid: ed07e904c669c41408399d7ccee62342
@@ -229,7 +229,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Conga
+  m_Name: Drums
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: b429e7eb03ee1f84bb4bb3cb7c6ca591
   m_Children: []

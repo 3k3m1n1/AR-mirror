@@ -88,9 +88,9 @@ public class ActivateMusicZone : MonoBehaviour
         //          This is a rendering setting that doesn't affect the raw input of the camera."
 
         int brightnessValue = 100;
-        while (zedManager.CameraBrightness > 14)
+        while (zedManager.CameraBrightness > 22)
         {
-            brightnessValue = (int)(brightnessValue - Time.deltaTime);
+            brightnessValue = (int)(brightnessValue - 2f * Time.deltaTime);
             zedManager.CameraBrightness = brightnessValue;
 
             yield return null;
